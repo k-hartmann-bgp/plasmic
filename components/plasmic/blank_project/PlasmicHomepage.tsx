@@ -50,7 +50,6 @@ export const PlasmicHomepage__ArgProps = new Array<ArgPropType>();
 
 export type PlasmicHomepage__OverridesType = {
   root?: p.Flex<"div">;
-  box?: p.Flex<"div">;
 };
 
 export interface DefaultHomepageProps {
@@ -92,15 +91,25 @@ function PlasmicHomepage__RenderFunc(props: {
           )}
         >
           <div
-            data-plasmic-name={"box"}
-            data-plasmic-override={overrides.box}
             className={classNames(
               defaultcss.all,
               defaultcss.__wab_text,
-              sty.box
+              sty.box__pihZg
             )}
           >
             {"Welcome to your first page."}
+          </div>
+
+          <div className={classNames(defaultcss.all, sty.box___8VFzk)}>
+            <div
+              className={classNames(
+                defaultcss.all,
+                defaultcss.__wab_text,
+                sty.box___0BTpz
+              )}
+            >
+              {"Testt"}
+            </div>
           </div>
         </div>
       </div>
@@ -109,15 +118,13 @@ function PlasmicHomepage__RenderFunc(props: {
 }
 
 const PlasmicDescendants = {
-  root: ["root", "box"],
-  box: ["box"]
+  root: ["root"]
 } as const;
 type NodeNameType = keyof typeof PlasmicDescendants;
 type DescendantsType<T extends NodeNameType> =
   typeof PlasmicDescendants[T][number];
 type NodeDefaultElementType = {
   root: "div";
-  box: "div";
 };
 
 type ReservedPropsType = "variants" | "args" | "overrides";
@@ -181,7 +188,6 @@ export const PlasmicHomepage = Object.assign(
   makeNodeComponent("root"),
   {
     // Helper components rendering sub-elements
-    box: makeNodeComponent("box"),
 
     // Metadata about props expected for PlasmicHomepage
     internalVariantProps: PlasmicHomepage__VariantProps,
